@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function SearchMovie(){
+
+    const [query, setQuery] = useState('')
 
     const searchMovies = async (e) => {
         e.preventDefault()
