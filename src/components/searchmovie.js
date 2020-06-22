@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 export default function SearchMovie(){
 
     const [query, setQuery] = useState('')
+    const [movies, setMovies] = useState([])
 
     const searchMovies = async (e) => {
         e.preventDefault()
@@ -14,7 +15,8 @@ export default function SearchMovie(){
         try{
         const res =  await fetch(url);
         const data =  await res.json();
-        console.log(data);
+        
+        setMovies(data.results)
         }catch(err){console.log(error)}
     }
 
@@ -27,6 +29,9 @@ export default function SearchMovie(){
                 ></input>
                 <button type = 'submit'>Search</button>
             </form>
+            <div className = 'card-list'>
+                {movies.map(movie => movie.title)}
+            </div>
         </div>
     )
 }
