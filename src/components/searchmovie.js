@@ -38,6 +38,13 @@ export default function SearchMovies(){
                             src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
                             alt={movie.title + ' poster'}
                             />
+                            
+                        <div className = 'card-content'>
+                            <h3 className = 'card--title'>{movie.title}</h3>
+                            <p>Released {movie.release_date}</p>
+                            <p>Rating: {movie.vote_average}</p>
+                            <p className = 'desc'>{movie.overview}</p>
+                        </div>
 
                     </div>
                 ))}
